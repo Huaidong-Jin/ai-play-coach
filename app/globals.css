@@ -2,6 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --bg: #faf9f6;
+  --surface: #ffffff;
+  --surface-2: #f3f2ee;
+  --text: #2c2a29;
+  --text-2: #4a4744;
+  --muted: #827f7c;
+  --border: #d6d3cf;
+  --accent: #e89a80;
+  --accent-2: #9eaea2;
+  --shadow-1: rgba(0, 0, 0, 0.03);
+  --shadow-2: rgba(0, 0, 0, 0.06);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html,
 body {
   padding: 0;
@@ -9,9 +29,25 @@ body {
 }
 
 body {
-  @apply bg-rose-50 text-slate-800;
+  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--text-2);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
     "Segoe UI", sans-serif;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: -0.03em;
+  color: var(--text);
+}
+
+p {
+  line-height: 1.7;
 }
 
 a {
@@ -19,7 +55,8 @@ a {
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
+button {
+  font-family: inherit;
 }
+
 

@@ -24,8 +24,10 @@ export function FavoriteButton({
       onClick={() => toggleFavorite(activityId)}
       aria-label={active ? "取消收藏该玩法" : "收藏该玩法"}
       data-testid={testId ?? `favorite-btn-${activityId}`}
-      className={`inline-flex items-center justify-center rounded-full border border-orange-200 bg-white px-2.5 py-1 text-xs font-medium text-orange-600 shadow-sm transition hover:bg-orange-50 hover:text-orange-700 aria-pressed:bg-orange-100 ${
-        active ? "bg-orange-100 text-orange-700" : ""
+      className={`inline-flex items-center justify-center rounded-full border border-apc-border/70 bg-apc-surface px-2.5 py-1 text-[11px] font-medium text-apc-muted shadow-sm transition-transform transition-colors duration-150 hover:border-apc-accent/40 hover:text-apc-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-apc-accent/40 focus-visible:ring-offset-1 focus-visible:ring-offset-apc-surface ${
+        active
+          ? "scale-95 border-apc-accent/40 bg-apc-accent/5 text-apc-accent"
+          : ""
       } ${className ?? ""}`}
       aria-pressed={active}
       {...rest}

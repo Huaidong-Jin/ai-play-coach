@@ -6,7 +6,7 @@ interface TagChipProps {
 
 export function TagChip({ children }: TagChipProps) {
   return (
-    <span className="inline-flex items-center rounded-full bg-orange-50 px-2.5 py-0.5 text-xs font-medium text-orange-700">
+    <span className="inline-flex items-center rounded-full bg-apc-surface2 px-2.5 py-0.5 text-[11px] font-medium text-apc-muted">
       {children}
     </span>
   );

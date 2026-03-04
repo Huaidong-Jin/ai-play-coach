@@ -24,11 +24,11 @@ export function ActivityCard({ activity }: ActivityCardProps) {
 
   return (
     <article
-      className="flex h-full flex-col rounded-2xl bg-[#FFFBF7] p-4 shadow-sm ring-1 ring-orange-100 transition hover:-translate-y-0.5 hover:shadow-md"
+      className="flex h-full flex-col rounded-2xl border border-apc-border/70 bg-apc-surface p-4 shadow-apc-soft-1 transition-transform transition-shadow duration-300 ease-out hover:-translate-y-0.5 hover:shadow-apc-soft-2"
       data-testid={`activity-card-${activity.id}`}
     >
       <Link href={`/activities/${activity.id}`} className="flex-1">
-        <h3 className="mb-2 text-base font-semibold text-slate-900">
+        <h3 className="mb-2 text-base font-semibold tracking-tight text-apc-text sm:text-lg">
           {activity.title}
         </h3>
         <div className="mb-2 flex flex-wrap gap-1.5 text-xs">
@@ -36,7 +36,7 @@ export function ActivityCard({ activity }: ActivityCardProps) {
           <TagChip>{formatLocation(activity.location)}</TagChip>
           {primaryTheme && <TagChip>{primaryTheme}</TagChip>}
         </div>
-        <p className="mt-1 line-clamp-2 text-xs text-slate-600">
+        <p className="mt-1 line-clamp-2 text-xs text-apc-muted">
           今天学什么：{todayLearn}
         </p>
       </Link>

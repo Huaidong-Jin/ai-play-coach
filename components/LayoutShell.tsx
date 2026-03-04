@@ -20,19 +20,19 @@ export function LayoutShell({ children }: LayoutShellProps) {
   const pathname = usePathname();
 
   return (
-    <div className="mx-auto flex min-h-screen max-w-screen-md flex-col px-4">
+    <div className="mx-auto flex min-h-screen max-w-5xl flex-col px-4 sm:px-6">
       <header
-        className="sticky top-0 z-20 -mx-4 mb-2 border-b border-orange-100 bg-[#FFF8F1]/95 backdrop-blur"
+        className="sticky top-0 z-50 mb-4 border-b border-apc-border/60 bg-apc-bg/80 backdrop-blur"
         aria-label="主导航"
       >
-        <div className="mx-auto flex max-w-screen-md items-center justify-between px-4 py-3">
+        <div className="mx-auto flex max-w-5xl items-center justify-between py-3">
           <Link
             href="/"
-            className="text-base font-semibold tracking-tight text-slate-900"
+            className="text-base font-semibold tracking-tight text-apc-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-apc-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-apc-bg"
           >
             AI Play Coach
           </Link>
-          <nav className="flex items-center gap-3 text-sm">
+          <nav className="flex items-center gap-2 text-sm">
             {[
               { href: "/", label: "Home" },
               { href: "/activities", label: "Activities" },
@@ -44,10 +44,10 @@ export function LayoutShell({ children }: LayoutShellProps) {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`rounded-full px-3 py-1 transition-colors ${
+                  className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
                     active
-                      ? "bg-orange-100 text-orange-700"
-                      : "text-slate-700 hover:bg-orange-50 hover:text-orange-700"
+                      ? "bg-apc-accent/10 text-apc-text underline decoration-apc-accent decoration-2 underline-offset-4"
+                      : "text-apc-muted hover:bg-apc-surface2 hover:text-apc-text"
                   }`}
                   aria-current={active ? "page" : undefined}
                 >
@@ -58,7 +58,7 @@ export function LayoutShell({ children }: LayoutShellProps) {
           </nav>
         </div>
       </header>
-      <main className="flex-1 pb-8 pt-3">{children}</main>
+      <main className="flex-1 pb-10 pt-2">{children}</main>
     </div>
   );
 }

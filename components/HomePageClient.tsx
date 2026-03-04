@@ -47,18 +47,26 @@ export function HomePageClient() {
   const quickFiltered = filtered;
 
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-col gap-6">
       <section
         data-testid="hero"
-        className="rounded-3xl bg-gradient-to-br from-orange-50 via-[#FFF8F1] to-rose-50 p-5 shadow-sm ring-1 ring-orange-100"
+        className="rounded-3xl border border-apc-border/70 bg-apc-surface p-6 shadow-apc-soft-1"
       >
-        <h1 className="mb-2 text-xl font-semibold text-slate-900">
+        <h1 className="mb-3 text-2xl font-semibold tracking-tight text-apc-text">
           AI Play Coach
         </h1>
-        <p className="text-sm text-slate-700">
-          面向 3–5 岁孩子家长的亲子「玩法卡片」，不用屏幕和编程，在日常游戏里轻轻松松聊 AI
-          直觉。
+        <p className="max-w-xl text-sm text-apc-text2">
+          为 3–5 岁孩子和父母准备的安静陪玩时间，用 5–15 分钟的小玩法，在日常生活里自然聊起
+          AI 的直觉，而不是多一块屏幕。
         </p>
+        <div className="mt-4 flex flex-wrap gap-2 text-[11px] text-apc-muted">
+          <span className="inline-flex items-center rounded-full bg-apc-surface2 px-2.5 py-1">
+            无屏幕 · 亲子共玩
+          </span>
+          <span className="inline-flex items-center rounded-full bg-apc-surface2 px-2.5 py-1">
+            5–15 分钟一局
+          </span>
+        </div>
       </section>
 
       <section
@@ -66,7 +74,7 @@ export function HomePageClient() {
         data-testid="today-recommendations"
       >
         <div className="flex items-center justify-between">
-          <h2 className="text-sm font-semibold text-slate-900">
+          <h2 className="text-sm font-semibold tracking-tight text-apc-text">
             今日推荐玩法
           </h2>
           <button
@@ -74,12 +82,12 @@ export function HomePageClient() {
             onClick={handleShuffle}
             aria-label="重新随机推荐玩法"
             data-testid="shuffle-recommendations"
-            className="text-xs font-medium text-orange-700 underline-offset-2 hover:underline"
+            className="rounded-full border border-apc-border/80 bg-apc-surface2 px-3 py-1 text-xs font-medium text-apc-muted transition-colors hover:border-apc-accent/40 hover:text-apc-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-apc-accent/40 focus-visible:ring-offset-1 focus-visible:ring-offset-apc-surface"
           >
             换一批
           </button>
         </div>
-        <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {recommended.map((activity) => (
             <ActivityCard key={activity.id} activity={activity} />
           ))}
@@ -88,13 +96,13 @@ export function HomePageClient() {
 
       <section className="space-y-3">
         <div className="flex items-center justify-between">
-          <h2 className="text-sm font-semibold text-slate-900">
+          <h2 className="text-sm font-semibold tracking-tight text-apc-text">
             快速找玩法
           </h2>
           <Link
             href="/activities"
             data-testid="go-to-activities"
-            className="rounded-full bg-orange-500 px-3 py-1 text-xs font-medium text-white shadow-sm transition hover:bg-orange-600"
+            className="rounded-full bg-apc-accent px-3 py-1 text-xs font-medium text-white shadow-sm transition hover:bg-apc-accent/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-apc-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-apc-bg"
           >
             去全部玩法
           </Link>
@@ -104,7 +112,7 @@ export function HomePageClient() {
           onChange={setFilters}
           compact
         />
-        <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {quickFiltered.slice(0, 4).map((activity) => (
             <ActivityCard key={activity.id} activity={activity} />
           ))}

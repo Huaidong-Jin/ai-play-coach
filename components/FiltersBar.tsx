@@ -49,14 +49,14 @@ export function FiltersBar({
 
   return (
     <section
-      className="rounded-2xl bg-[#FFF9F3] p-3 shadow-sm ring-1 ring-orange-100"
+      className="rounded-2xl border border-apc-border/70 bg-apc-surface2 p-3 shadow-apc-soft-1"
       data-testid={compact ? "quick-filters" : "filters-bar"}
     >
       {!compact && (
         <div className="mb-3">
           <label
             htmlFor="search-input"
-            className="mb-1 block text-xs font-medium text-slate-600"
+            className="mb-1 block text-xs font-medium text-apc-muted"
           >
             搜索玩法
           </label>
@@ -69,7 +69,7 @@ export function FiltersBar({
               onChange({ ...value, query: e.target.value })
             }
             placeholder="按标题、步骤、材料等搜索…"
-            className="w-full rounded-xl border border-orange-100 bg-white px-3 py-2 text-sm placeholder:text-slate-400 focus:border-orange-300 focus:outline-none focus:ring-2 focus:ring-orange-200"
+            className="w-full rounded-xl border border-apc-border/70 bg-apc-surface px-3 py-2 text-sm text-apc-text2 placeholder:text-apc-muted focus:border-apc-accent/60 focus:outline-none focus:ring-2 focus:ring-apc-accent/30"
           />
         </div>
       )}
@@ -119,7 +119,7 @@ export function FiltersBar({
             onClick={handleClear}
             data-testid="clear-filters"
             aria-label="清空筛选条件"
-            className="text-xs font-medium text-orange-700 underline-offset-2 hover:underline"
+            className="rounded-full border border-apc-border/70 bg-apc-surface px-3 py-1 text-xs font-medium text-apc-muted shadow-sm transition-colors hover:border-apc-accent/40 hover:text-apc-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-apc-accent/30 focus-visible:ring-offset-1 focus-visible:ring-offset-apc-surface2"
           >
             清空筛选
           </button>
@@ -143,11 +143,11 @@ interface FilterRowProps {
 function FilterRow({ label, testId, chips }: FilterRowProps) {
   return (
     <div>
-      <p className="mb-1 text-[11px] font-medium text-slate-600">
+      <p className="mb-1 text-[11px] font-medium text-apc-muted">
         {label}
       </p>
       <div
-        className="-mx-1 flex gap-1 overflow-x-auto pb-1"
+        className="flex gap-1 overflow-x-auto pb-1"
         data-testid={testId}
       >
         {chips.map((chip) => (
@@ -155,10 +155,10 @@ function FilterRow({ label, testId, chips }: FilterRowProps) {
             key={chip.key}
             type="button"
             onClick={chip.onClick}
-            className={`whitespace-nowrap rounded-full border px-2.5 py-1 text-[11px] transition ${
+            className={`whitespace-nowrap rounded-full border px-2.5 py-1 text-[11px] font-medium transition-colors ${
               chip.selected
-                ? "border-orange-400 bg-orange-100 text-orange-800"
-                : "border-orange-100 bg-white text-slate-700 hover:border-orange-300 hover:bg-orange-50"
+                ? "border-apc-accent/40 bg-apc-accent/10 text-apc-text"
+                : "border-apc-border/70 bg-apc-surface text-apc-muted hover:border-apc-accent/40 hover:text-apc-accent"
             }`}
           >
             {chip.label}
